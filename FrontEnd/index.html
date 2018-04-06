@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Hack Coding Challenge Front End</title>
+        
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+
+
+    <body style = "background-color:#5f27cd;font-family: Helvetica;">
+        
+        <script>
+            function makePostReq(emailElement)
+            {
+                
+                //Allows IE to make a POST request to a different domain
+                $.support.cors = true;
+                
+                
+                /*
+                $.post({
+                    complete: function(jqXHR, textStatus){
+                        console.log("jqXHR:");
+                        console.log(jqXHR);
+                        
+                        console.log("textStatus:");
+                        console.log(textStatus);
+                    },
+                    contentType: "application/x-www-form-urlencoded",
+                    crossDomain: true,
+                    data: {email: emailElement.value},
+                    dataType: "text",
+                    error: function(jqXHR, textStatus,errorThrown){
+                        console.log("jqXHR:");
+                        console.log(jqXHR);
+                        
+                        console.log("textStatus:");
+                        console.log(textStatus);
+                        
+                        console.log("errorThrown:")
+                        console.log(errorThrown)
+                    },
+                    
+                    method: "POST",
+                    url: "http://localhost:3000/api/addEmail",
+                    type: "POST"
+                });
+                */
+                
+                
+                
+                
+                
+                //Makes a HTTP POST request to http://localhost:3000/api/addEmail
+                
+                $.post("http://localhost:3000/api/addEmail", {email: emailElement.value}, function(data, textStatus, jqXHR){
+                    console.log("data: ");
+                    console.log(data);
+                    console.log(textStatus);
+                    console.log(jqXHR);
+
+                    console.log(jqXHR.status + " " + jqXHR.statusText + ": " + data);
+                }, 'text').fail(function(jqXHR, textStatus, errorthrown){
+                    //console.log(jqXHR.responseText);
+
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorthrown);
+                });
+                                    
+                /*
+                var httpRequest;
+                if(window.XMLHttpRequest)
+                {
+                    httpRequest = new XMLHttpRequest();
+                }
+                else
+                {
+                    httpRequest = ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                httpRequest.onreadystatechange = function(){
+                    if(httpRequest.readyState == XMLHttpRequest.DONE)
+                    {
+                        console.log(httpRequest.statusText);
+                    }
+                };
+
+                httpRequest.open("POST", "http://localhost:3000/api/addEmail", true);
+                httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                httpRequest.send("email="+emailElement.value);
+                */
+            }
+        </script>
+        
+        <div class="container">
+            
+            <div class="row">
+                
+                <div class="col-xl-12 d-none d-xl-block">
+                    <h1 style="color:white"><strong>Stay up to date with our latest news and events by joining our newsletter!</strong></h1>
+                    <hr style="width:5%; margin-left: 0; text-align: left; color: #2ecc71; background-color: #2ecc71; height:4px; border-width: 0">
+                </div>
+                
+                <div class="col-lg-12 d-none d-lg-block d-xl-none">
+                    <h1 style="color:white"><strong>Stay up to date with our latest news and events by joining our newsletter!</strong></h1>
+                    <hr style="width:10%; margin-left: 0; text-align: left; color: #2ecc71; background-color: #2ecc71; height:4px; border-width: 0">
+                </div>
+                
+                <div class="col-md-12 d-none d-md-block d-lg-none">
+                    <h1 style="color:white"><strong>Stay up to date with our latest news and events by joining our newsletter!</strong></h1>
+                    <hr style="width:12.5%; margin-left: 0; text-align: left; color: #2ecc71; background-color: #2ecc71; height:4px; border-width: 0">
+                </div>
+                
+                
+                <div class="col-sm-12 d-none d-sm-block d-md-none">
+                    <h1 style="color:white"><strong>Stay up to date with our latest news and events by joining our newsletter!</strong></h1>
+                    <hr style="width:13%; margin-left: 0; text-align: left; color: #2ecc71; background-color: #2ecc71; height:4px; border-width: 0">
+                </div>
+                
+                
+                <div class="col-12 d-block d-sm-none">
+                    <h1 style="color:white"><strong>Stay up to date with our latest news and events by joining our newsletter!</strong></h1>
+                    <hr style="width:15%; margin-left: 0; text-align: left; color: #2ecc71; background-color: #2ecc71; height:4px; border-width: 0">
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                
+                <div class="col-xl-12 d-none d-xl-block">
+                    <h5 style="color:white">SUBSCRIBE FOR THE LATEST NEWS</h5>
+                </div>
+                
+                <div class="col-lg-12 d-none d-lg-block d-xl-none">
+                    <h5 style="color:white">SUBSCRIBE FOR THE LATEST NEWS</h5>
+                </div>
+                
+                <div class="col-md-12 d-none d-md-block d-lg-none">
+                    <h5 style="color:white">SUBSCRIBE FOR THE LATEST NEWS</h5>
+                </div>
+                
+                <div class="col-sm-12 d-none d-sm-block d-md-none">
+                    <h5 style="color:white">SUBSCRIBE FOR THE LATEST NEWS</h5>
+                </div>
+                
+                <div class="col-12 d-block d-sm-none">
+                    <h5 style="color:white">SUBSCRIBE FOR THE LATEST NEWS</h5>
+                </div>
+            </div>
+            
+            <div class="row">
+                
+                <!--Form for extra large screens: 1200px < width-->
+                
+                <div class="col-xl-12 d-none d-xl-block">
+                    <form id="form-xl">
+                        <div class="row">
+                            
+                            <div class = "col-xl-8 d-none d-xl-block">
+                                <input id="email-xl" type="email" name="email" class="form-control" style="color: #495057" placeholder="Email Address">
+                            </div>
+
+                            <div class = "col-xl-4 d-none d-xl-block">
+                                <select class="custom-select">
+                                    <option>Intrested in ...</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xl-12 d-none d-xl-block">
+                                <span id="errorMessage-xl" style="color: #ff6b6b"></span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                            <div class="col-xl-12 d-none d-xl-block">
+                                <button onclick="validateEmail_xl()" type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #2e86de"><strong>Sign up now</strong></button>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            function validateEmail_xl()
+                            {
+                                console.log("part 1");
+                                
+                                var emailElement = document.getElementById("email-xl");
+                                var formElement = document.getElementById("form-xl")
+                                
+                                if(emailElement.checkValidity() && emailElement.value != "")
+                                {   
+                                    console.log("part 2");
+                                    document.getElementById("errorMessage-xl").innerHTML = "";
+                                    
+                                    makePostReq(emailElement);
+                                }
+                                else
+                                {
+                                    
+                                    console.log("part 3");
+                                    document.getElementById("errorMessage-xl").innerHTML = "<p>Please enter a vaild email address.</p>";
+                                }
+                            }
+                        </script>
+                    </form>
+                </div>
+                
+                <!--Form for large screens: 992px < width < 1199.98px-->
+                
+                <div class="col-lg-12 d-none d-lg-block d-xl-none">
+                    <form id="form-lg" action="http://localhost:3000/api/addEmail" method="post">
+                        <div class="row">
+                            
+                            <div class = "col-lg-8 d-none d-lg-block d-xl-none">
+                                <input id="email-lg" type="email" name="email" class="form-control" style="color: #495057" placeholder="Email Address">
+                            </div>
+
+                            <div class = "col-lg-4 d-none d-lg-block d-xl-none">
+                                <select class="custom-select">
+                                    <option>Intrested in ...</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-12 d-none d-lg-block d-xl-none">
+                                <span id="errorMessage-lg" style="color: #ff6b6b"></span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                            <div class="col-lg-12 d-none d-lg-block d-xl-none">
+                                <button onclick="validateEmail_lg()" type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #2e86de"><strong>Sign up now</strong></button>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            function validateEmail_lg()
+                            {
+                                
+                                
+                                var emailElement = document.getElementById("email-lg");
+                                var formElement = document.getElementById("form-lg")
+                                
+                                if(emailElement.checkValidity() && emailElement.value != "")
+                                {   
+                                    document.getElementById("errorMessage-lg").innerHTML = "";
+                                    
+                                    makePostReq(emailElement);
+                                }
+                                else
+                                {
+                                    document.getElementById("errorMessage-lg").innerHTML = "<p>Please enter a vaild email address.</p>";
+                                }
+                            }
+                        </script>
+                        
+                    </form>
+                </div>
+                
+                <!--Form for medium screens: 768px < width < 991.98px-->
+                
+                <div class="col-md-12 d-none d-md-block d-lg-none">
+                    <form id="form-md" action="http://localhost:3000/api/addEmail" method="post">
+                        <div class="row">
+                            
+                            <div class = "col-md-8 d-none d-md-block d-lg-none">
+                                <input id="email-md" type="email" name="email" class="form-control" style="color: #495057" placeholder="Email Address">
+                            </div>
+
+                            <div class = "col-md-4 d-none d-md-block d-lg-none">
+                                <select class="custom-select">
+                                    <option>Intrested in ...</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 d-none d-md-block d-lg-none">
+                                <span id="errorMessage-md" style="color: #ff6b6b"></span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                            <div class="col-md-12 d-none d-md-block d-lg-none">
+                                <button onclick="validateEmail_md()" type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #2e86de"><strong>Sign up now</strong></button>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            function validateEmail_md()
+                            {
+                                var emailElement = document.getElementById("email-md");
+                                var formElement = document.getElementById("form-md")
+                                
+                                if(emailElement.checkValidity() && emailElement.value != "")
+                                {   
+                                    document.getElementById("errorMessage-md").innerHTML = "";
+                                    makePostReq(emailElement);
+                                }
+                                else
+                                {
+                                    document.getElementById("errorMessage-md").innerHTML = "<p>Please enter a vaild email address.</p>";
+                                }
+                            }
+                        </script>
+                        
+                    </form>
+                </div>
+                
+                <!--Form for small screens: 576px < width < 767.98px-->
+                
+                <div class="col-sm-12 d-none d-sm-block d-md-none">
+                    <form id="form-sm" action="http://localhost:3000/api/addEmail" method="post">
+                        <div class="row">
+                            
+                            <div class = "col-sm-8 d-none d-sm-block d-md-none">
+                                <input id="email-sm" type="email" name="email" class="form-control" style="color: #495057" placeholder="Email Address">
+                            </div>
+
+                            <div class = "col-sm-4 d-none d-sm-block d-md-none">
+                                <select class="custom-select">
+                                    <option>Intrested in ...</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-12 d-none d-sm-block d-md-none">
+                                <span id="errorMessage-sm" style="color: #ff6b6b"></span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row">
+                            <div class="col-sm-12 d-none d-sm-block d-md-none">
+                                <button onclick="validateEmail_sm()" type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #2e86de"><strong>Sign up now</strong></button>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            function validateEmail_sm()
+                            {
+                                
+                                
+                                var emailElement = document.getElementById("email-sm");
+                                var formElement = document.getElementById("form-sm")
+                                
+                                if(emailElement.checkValidity() && emailElement.value != "")
+                                {   
+                                    document.getElementById("errorMessage-sm").innerHTML = "";
+                                    makePostReq(emailElement);
+                                }
+                                else
+                                {
+                                    document.getElementById("errorMessage-sm").innerHTML = "<p>Please enter a vaild email address.</p>";
+                                }
+                            }
+                        </script>
+                        
+                    </form>
+                </div>
+                
+                
+                <!--Form for extra small screens: width < 575.98px-->
+                
+                <div class="col-12 d-block d-sm-none">
+                    <form id="form-xs" action="http://localhost:3000/api/addEmail" method="post">
+                        <div class="row">
+                            
+                            <div class = "col-8 d-block d-sm-none">
+                                <input id="email-xs" type="email" name="email" class="form-control" style="color: #495057" placeholder="Email Address">
+                            </div>
+
+                            <div class = "col-4 d-block d-sm-none">
+                                <select class="custom-select">
+                                    <option>Intrested in ...</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 d-block d-sm-none">
+                                <span id="errorMessage-xs" style="color: #ff6b6b"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 d-block d-sm-none">
+                                <button onclick="validateEmail_xs()" type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #2e86de"><strong>Sign up now</strong></button>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            function validateEmail_xs()
+                            {
+                                
+                                
+                                var emailElement = document.getElementById("email-xs");
+                                var formElement = document.getElementById("form-xs")
+                                
+                                if(emailElement.checkValidity() && emailElement.value != "")
+                                {   
+                                    document.getElementById("errorMessage-xs").innerHTML = "";
+                                    makePostReq(emailElement);
+                                }
+                                else
+                                {
+                                    document.getElementById("errorMessage-xs").innerHTML = "<p>Please enter a vaild email address.</p>";
+                                }
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
