@@ -13,65 +13,20 @@
     </head>
 
 
-    <body style = "background-color:#5f27cd;font-family: Helvetica;">
+    <body style = "background-color:#5f27cd;font-family: Helvetica; padding-top: 100px; padding-bottom: 100px">
         
         <script>
             function makePostReq(emailElement)
             {
                 
-                //Allows IE to make a POST request to a different domain
+                //Allows client to make a POST request in Internet Explorer browser
                 $.support.cors = true;
                 
-                
-                /*
-                $.post({
-                    complete: function(jqXHR, textStatus){
-                        console.log("jqXHR:");
-                        console.log(jqXHR);
-                        
-                        console.log("textStatus:");
-                        console.log(textStatus);
-                    },
-                    contentType: "application/x-www-form-urlencoded",
-                    crossDomain: true,
-                    data: {email: emailElement.value},
-                    dataType: "text",
-                    error: function(jqXHR, textStatus,errorThrown){
-                        console.log("jqXHR:");
-                        console.log(jqXHR);
-                        
-                        console.log("textStatus:");
-                        console.log(textStatus);
-                        
-                        console.log("errorThrown:")
-                        console.log(errorThrown)
-                    },
-                    
-                    method: "POST",
-                    url: "http://localhost:3000/api/addEmail",
-                    type: "POST"
-                });
-                */
-                
-                
-                
-                
-                
                 //Makes a HTTP POST request to http://localhost:3000/api/addEmail
-                
                 $.post("http://localhost:3000/api/addEmail", {email: emailElement.value}, function(data, textStatus, jqXHR){
-                    console.log("data: ");
-                    console.log(data);
-                    console.log(textStatus);
-                    console.log(jqXHR);
-
                     console.log(jqXHR.status + " " + jqXHR.statusText + ": " + data);
                 }, 'text').fail(function(jqXHR, textStatus, errorthrown){
-                    //console.log(jqXHR.responseText);
-
-                    console.log(jqXHR);
-                    console.log(textStatus);
-                    console.log(errorthrown);
+                    console.log(jqXHR.status + " " + jqXHR.statusText + ": " + jqXHR.responseText);
                 });
                                     
                 /*
@@ -191,22 +146,16 @@
                         <script>
                             function validateEmail_xl()
                             {
-                                console.log("part 1");
-                                
                                 var emailElement = document.getElementById("email-xl");
                                 var formElement = document.getElementById("form-xl")
                                 
                                 if(emailElement.checkValidity() && emailElement.value != "")
                                 {   
-                                    console.log("part 2");
                                     document.getElementById("errorMessage-xl").innerHTML = "";
-                                    
                                     makePostReq(emailElement);
                                 }
                                 else
                                 {
-                                    
-                                    console.log("part 3");
                                     document.getElementById("errorMessage-xl").innerHTML = "<p>Please enter a vaild email address.</p>";
                                 }
                             }
