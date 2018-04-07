@@ -6,7 +6,7 @@ Use npm to install all dependencies found in BackEnd/package.json
 
 Navigate to the BackEnd/scripts/ directory in the node commandline.
 
-Run the following command in the node commandline while in the BackEnd/scripts/ directory
+Run the following command in the node commandline while in the BackEnd/scripts/ directory to start the server
 ~~~
 node main.js
 ~~~
