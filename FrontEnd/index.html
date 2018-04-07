@@ -16,9 +16,8 @@
     <body style = "background-color:#5f27cd;font-family: Helvetica; padding-top: 100px; padding-bottom: 100px">
         
         <script>
-            function makePostReq(emailElement)
+            function makePostReq(emailElement, size)
             {
-                
                 //Allows client to make a POST request in Internet Explorer browser
                 $.support.cors = true;
                 
@@ -27,30 +26,12 @@
                     console.log(jqXHR.status + " " + jqXHR.statusText + ": " + data);
                 }, 'text').fail(function(jqXHR, textStatus, errorthrown){
                     console.log(jqXHR.status + " " + jqXHR.statusText + ": " + jqXHR.responseText);
-                });
-                                    
-                /*
-                var httpRequest;
-                if(window.XMLHttpRequest)
-                {
-                    httpRequest = new XMLHttpRequest();
-                }
-                else
-                {
-                    httpRequest = ActiveXObject("Microsoft.XMLHTTP");
-                }
-
-                httpRequest.onreadystatechange = function(){
-                    if(httpRequest.readyState == XMLHttpRequest.DONE)
+                    
+                    if(jqXHR.responseText == "Email is invalid.")
                     {
-                        console.log(httpRequest.statusText);
+                        document.getElementById("errorMessage-"+size).innerHTML = "<p>Please enter a vaild email address.</p>";
                     }
-                };
-
-                httpRequest.open("POST", "http://localhost:3000/api/addEmail", true);
-                httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                httpRequest.send("email="+emailElement.value);
-                */
+                });
             }
         </script>
         
@@ -152,7 +133,7 @@
                                 if(emailElement.checkValidity() && emailElement.value != "")
                                 {   
                                     document.getElementById("errorMessage-xl").innerHTML = "";
-                                    makePostReq(emailElement);
+                                    makePostReq(emailElement, "xl");
                                 }
                                 else
                                 {
@@ -206,7 +187,7 @@
                                 {   
                                     document.getElementById("errorMessage-lg").innerHTML = "";
                                     
-                                    makePostReq(emailElement);
+                                    makePostReq(emailElement, "lg");
                                 }
                                 else
                                 {
@@ -258,7 +239,7 @@
                                 if(emailElement.checkValidity() && emailElement.value != "")
                                 {   
                                     document.getElementById("errorMessage-md").innerHTML = "";
-                                    makePostReq(emailElement);
+                                    makePostReq(emailElement, "md");
                                 }
                                 else
                                 {
@@ -312,7 +293,7 @@
                                 if(emailElement.checkValidity() && emailElement.value != "")
                                 {   
                                     document.getElementById("errorMessage-sm").innerHTML = "";
-                                    makePostReq(emailElement);
+                                    makePostReq(emailElement, "sm");
                                 }
                                 else
                                 {
@@ -366,7 +347,7 @@
                                 if(emailElement.checkValidity() && emailElement.value != "")
                                 {   
                                     document.getElementById("errorMessage-xs").innerHTML = "";
-                                    makePostReq(emailElement);
+                                    makePostReq(emailElement, "xs");
                                 }
                                 else
                                 {

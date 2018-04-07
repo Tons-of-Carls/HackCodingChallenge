@@ -32,15 +32,10 @@ app.post("/api/addEmail", function(req, res){
         
         if(db.get("emailingList").find({email:req.body.email}).value() == null)
         {
-            console.log(req.body);
-            console.log(req.body.email);
-
-            console.log(req.get("Access-Control-Allow-Origin"))
-
             //Store email in database
             db.get("emailingList").push({email:req.body.email}).write();
 
-            //Log the new state of the database
+            //Log the new emailing list
             console.log(db.getState());
 
             //Return a status of 200
